@@ -1,0 +1,36 @@
+{
+  "name": "bartrack-pos",
+  "version": "1.0.0",
+  "description": "Professional Bar POS System with Sales, Stock, and Analytics",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "nodemon server/index.js",
+    "client": "cd client && npm start",
+    "mobile": "cd mobile && npx react-native start",
+    "install-all": "npm install && cd client && npm install && cd ../mobile && npm install"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^7.5.0",
+    "jsonwebtoken": "^9.0.2",
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^16.3.1",
+    "cors": "^2.8.5",
+    "twilio": "^4.16.0",
+    "nodemailer": "^6.9.5",
+    "stripe": "^13.5.0",
+    "socket.io": "^4.7.2",
+    "multer": "^1.4.5-lts.1",
+    "express-validator": "^7.0.1",
+    "morgan": "^1.10.0",
+    "helmet": "^7.0.0",
+    "compression": "^1.7.4"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "keywords": ["pos", "bar", "restaurant", "inventory", "sales"],
+  "author": "BarTrack Team",
+  "license": "MIT"
+}

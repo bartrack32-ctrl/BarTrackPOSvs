@@ -1,0 +1,76 @@
+# Dependencies
+node_modules/
+*/node_modules/
+
+# Environment Variables
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# Build outputs
+dist/
+build/
+*/build/
+*/dist/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Testing
+coverage/
+.nyc_output/
+
+# MongoDB
+data/
+*.db
+
+# Production
+production/
+
+# Mobile
+mobile/android/app/build/
+mobile/ios/build/
+mobile/ios/Pods/
+*.pbxuser
+*.mode1v3
+*.mode2v3
+*.perspectivev3
+xcuserdata/
+*.moved-aside
+*.xccheckout
+*.xcscmblueprint
+DerivedData/
+
+# Miscellaneous
+*.pem
+*.key
+*.p12
+.expo/
+.expo-shared/
+
+# Package files
+*.tgz
+*.tar.gz
+
+# Backup files
+backup/
+*.backup
+
+# Temporary files
+tmp/
+temp/

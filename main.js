@@ -83,7 +83,10 @@ function renderDashboard() {
 // Render Sales View
 function renderSales() {
     return `
-        <h2 style="margin-bottom: 20px;">💰 Sales Management</h2>
+        <div class="page-header">
+            <button class="btn-back" onclick="changeView('dashboard')">← Back to Dashboard</button>
+            <h2>💰 Sales Management</h2>
+        </div>
         
         <div class="card" style="margin-bottom: 20px;">
             <h3>Create New Sale</h3>
@@ -141,7 +144,10 @@ function renderSales() {
 // Render Menu Management
 function renderMenu() {
     return `
-        <h2 style="margin-bottom: 20px;">🍽️ Menu Management</h2>
+        <div class="page-header">
+            <button class="btn-back" onclick="changeView('dashboard')">← Back to Dashboard</button>
+            <h2>🍽️ Menu Management</h2>
+        </div>
         
         <div class="card">
             <h3>Add New Menu Item</h3>
@@ -178,7 +184,10 @@ function renderMenu() {
 // Render Stock Management
 function renderStock() {
     return `
-        <h2 style="margin-bottom: 20px;">📦 Stock Management</h2>
+        <div class="page-header">
+            <button class="btn-back" onclick="changeView('dashboard')">← Back to Dashboard</button>
+            <h2>📦 Stock Management</h2>
+        </div>
         
         <div class="dashboard">
             <div class="card">
@@ -228,7 +237,10 @@ function renderStock() {
 // Render Analytics
 function renderAnalytics() {
     return `
-        <h2 style="margin-bottom: 20px;">📈 Profit & Loss Analysis</h2>
+        <div class="page-header">
+            <button class="btn-back" onclick="changeView('dashboard')">← Back to Dashboard</button>
+            <h2>📈 Profit & Loss Analysis</h2>
+        </div>
         
         <div class="dashboard">
             <div class="card">
@@ -282,7 +294,10 @@ function renderAnalytics() {
 // Render Bank Reconciliation
 function renderBank() {
     return `
-        <h2 style="margin-bottom: 20px;">🏦 Bank Reconciliation</h2>
+        <div class="page-header">
+            <button class="btn-back" onclick="changeView('dashboard')">← Back to Dashboard</button>
+            <h2>🏦 Bank Reconciliation</h2>
+        </div>
         
         <div class="dashboard">
             <div class="card">

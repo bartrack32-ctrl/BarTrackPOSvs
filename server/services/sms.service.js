@@ -1,13 +1,41 @@
 const twilio = require('twilio');
 
-const client = twilio(
-  process.env.TWILIO_ACCOUNT_SID,
-  process.env.TWILIO_AUTH_TOKEN
-);
+// Check if Twilio credentials are valid
+const hasTwilioCredentials = 
+  process.env.TWILIO_ACCOUNT_SID && 
+  process.env.TWILIO_ACCOUNT_SID.startsWith('AC') &&
+  process.env.TWILIO_AUTH_TOKEN &&
+  process.env.TWILIO_PHONE_NUMBER;
+
+let client = null;
+
+if (hasTwilioCredentials) {
+  try {
+    client = twilio(
+      process.env.TWILIO_ACCOUNT_SID,
+      process.env.TWILIO_AUTH_TOKEN
+    );
+    console.log('✅ Twilio SMS service initialized');
+  } catch (error) {
+    console.warn('⚠️  Twilio initialization failed:', error.message);
+    console.log('📱 Running in demo mode - SMS alerts will be logged instead');
+  }
+} else {
+  console.log('💡 Twilio not configured - SMS alerts will be logged to console');
+  console.log('   To enable SMS: Add TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN, TWILIO_PHONE_NUMBER to .env');
+}
 
 class SMSService {
   // Send SMS notification
   async sendSMS(to, message) {
+    // Demo mode - log instead of sending
+    if (!client) {
+      console.log('📱 [DEMO SMS]');
+      console.log('   To:', to);
+      console.log('   Message:', message);
+      return { success: true, demo: true, message: 'SMS logged in demo mode' };
+    }
+
     try {
       const result = await client.messages.create({
         body: message,
@@ -19,7 +47,10 @@ class SMSService {
       return { success: true, sid: result.sid };
     } catch (error) {
       console.error('❌ SMS sending failed:', error.message);
-      return { success: false, error: error.message };
+      console.log('📱 [FALLBACK] Logging message instead');
+      console.log('   To:', to);
+      console.log('   Message:', message);
+      return { success: false, error: error.message, logged: true };
     }
   }
 
